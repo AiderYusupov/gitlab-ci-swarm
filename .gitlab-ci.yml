@@ -53,7 +53,7 @@ trivy-scan:
   image:
     name: docker.io/aquasec/trivy:latest
     entrypoint: [""]
-#Не будем использовать переменную, так как мы сканируем image из registry, а не код из GitLab
+#Не будем клонировать git репозиторий, так как мы сканируем image из registry, а не код из GitLab
   variables:
     GIT_STRATEGY: none
   script:
