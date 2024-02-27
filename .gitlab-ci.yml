@@ -1,15 +1,19 @@
+# общие переменные для всех шагов в CI ниже
 variables:
   REGISTRY_URL: "https://mynexus.com/v1/"
   IMAGE_NAME: "keyauto"
 
+#Шаги которые будут выполняться поочередно друг за другом
 stages:
   - lint
   - build
   - scan
   - deploy
 
+#Сканирование кода на синтаксис, ошибки, правильное оформление функций
 pylint:
   stage: lint
+  # Выбор на каком runner с каким tag запускать нашу job 
   tags:
     - k8s-runner-amd64
   image: registry.gitlab.com/pipeline-components/pylint:latest
