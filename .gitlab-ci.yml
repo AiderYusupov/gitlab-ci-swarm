@@ -68,7 +68,7 @@ trivy-scan:
 # запускать данный шаг только когда создаетс тег
   only:
     - tags
-  # не запускать когда создается branch
+# не запускать когда создается branch
   except:
     - branches
 
@@ -78,9 +78,9 @@ deploy:
   script:
     - sed -i "s/KEYAUTO_VERSION/${CI_COMMIT_TAG}/g" docker-compose.yml
     - docker stack deploy -c docker-compose.yml keyauto
-  # запускать данный шаг только когда создаетс тег
+# запускать данный шаг только когда создаетс тег
   only:
     - tags
-  # не запускать когда создается branch
+# не запускать когда создается branch
   except:
     - branches
